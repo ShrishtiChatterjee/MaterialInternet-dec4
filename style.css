@@ -1,0 +1,238 @@
+@font-face {
+  font-family: "Pixel1";
+            src: url(Fonts/PixelifySans-VariableFont_wght.ttf) format("opentype") ; 
+}
+body{
+  background-color: #fffc5b;
+   padding: 10px 40px 40px 40px;  
+  box-sizing: border-box;
+  overflow-y: clip;
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+}
+
+.header .about-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  padding: 10px 40px;
+  color: #fffc5b;
+  font-size: 20px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8CD2D6;
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: -1;
+  }
+}
+
+h1{
+font-family: "bc-figural", sans-serif;
+font-weight: 400;
+font-style: italic;
+font-size: 35px;
+color: rgb(71, 70, 70);
+}
+
+.map_container{
+  position: absolute;
+  top: 168px;
+  width:490vw;
+  height:100vh;
+  overflow: visible;
+}
+
+
+.map-piece{
+  position: absolute;
+  z-index: 0;            /* baseline */
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+
+.map-piece:hover {
+  /* background-color: white; */
+}
+
+.map-piece img{
+  width: 200px;
+  transition: transform 0.3 ease;
+}
+.map-piece video {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.map-piece .active-zone {
+  position: relative;
+  width: fit-content;
+}
+
+.map-piece .active-zone video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-piece .hover-image {
+  display: none;
+}
+
+.map-piece:hover .hover-image {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* above map pieces */
+}
+
+
+.caption {
+  font-family: "roboto-mono", monospace;
+  font-weight: 400;
+font-style: normal;
+  font-size: 14px;
+  margin-top: 6px;
+  color: #000000;        
+  max-width: 300px; 
+  line-height: 1.3;
+}
+
+/* Timestamp styling */
+.timestamp {
+  position: absolute;
+  top: -49px;                 /* overlaps above the top of the image */
+  left: 60%;
+  font-size: 32px;
+ font-family: "galix-mono", sans-serif;
+font-weight: 500;
+font-style: normal;
+  color: #3fc7c0;
+
+  z-index: 20;
+}
+
+.timestamp2 {
+  position: absolute;
+  top: 0px;                 /* overlaps above the top of the image */
+  left: 90%;
+  font-size: 32px;
+ font-family: "galix-mono", sans-serif;
+font-weight: 500;
+font-style: normal;
+  color: #3fc7c0;
+
+  z-index: 20;
+}
+/* Close button */
+#video-popup .close-btn {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(246, 255, 0);
+  z-index: 101;
+}
+
+.pop-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 33%;
+  height: 100%;
+  background-color: #D4D4D4;
+  z-index: 100;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+
+  .close-btn {
+    position: absolute;
+    top: 32px;
+    left: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 10px 16px;
+    color: #fffc5b;
+    font-size: 20px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #8CD2D6;
+      border-radius: 50%;
+      filter: blur(10px);
+      z-index: -1;
+    }
+  }
+  .pop-content {  padding: 80px 40px;
+  font-family: "roboto-mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: #222;               /* softer than black */
+  line-height: 1.6;          /* easier long-text reading */
+  font-size: 15px;           /* slightly larger than captions */
+  letter-spacing: 0.2px; 
+  }
+}
+
+.pop-overlay .pop-content h2 {
+  font-family: "bc-figural", sans-serif;
+font-weight: 400;
+font-style: italic;
+font-size: 35px;
+color: rgb(71, 70, 70);
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+}
+
+.progress-bar {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  width: 40px;
+  height: 40px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
